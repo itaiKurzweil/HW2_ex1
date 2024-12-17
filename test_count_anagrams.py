@@ -47,3 +47,7 @@ def test_performance():
     
     elapsed_time_ms = (end_time - start_time) * 1000  # Convert to milliseconds
     print(f"Time taken to run count_anagrams 1000 times: {elapsed_time_ms:.2f} ms")
+    
+        # Assert that the time taken is less than a certain threshold (e.g., 1000 ms)
+    # If the time taken is greater than 1000 ms, this assertion will fail
+    assert elapsed_time_ms < 1000, f"Test took too long: {elapsed_time_ms:.2f} ms"
