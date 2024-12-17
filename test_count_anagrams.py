@@ -1,3 +1,4 @@
+import time
 from word_tools import count_anagrams
 
 def test_empty_text():
@@ -31,3 +32,18 @@ def test_text_equals_word():
     assert count_anagrams("word", "word") == 1
 def test_multiple_words_with_anagrams():
     assert count_anagrams("the quick brown fox jumps over the lazy dog for ox", "for") == 1
+
+def test_performance():
+    long_text = "a" * 10000  # Example long text (10,000 characters of 'a')
+    word = "aa"
+    
+    start_time = time.time()
+    
+    # Run count_anagrams 1000 times (or more if needed)
+    for _ in range(1000):
+        count_anagrams(long_text, word)
+    
+    end_time = time.time()
+    
+    elapsed_time_ms = (end_time - start_time) * 1000  # Convert to milliseconds
+    print(f"Time taken to run count_anagrams 1000 times: {elapsed_time_ms:.2f} ms")
